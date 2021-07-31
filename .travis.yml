@@ -5,10 +5,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t sublimerailway/docker-react .
+  - docker build -t sublimerailway/docker-react Dockerfile.dev .
 
 script:
-  - docker run -e CI=true sublimerailway/docker-react npm run test -- --watchAll=false
+  - docker run -e CI=true sublimerailway/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
